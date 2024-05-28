@@ -5,11 +5,13 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{894AB032-57E6-465E-A9B3-1146D165DAF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonModel", "PersonModel\PersonModel.csproj", "{3266CCF2-CA23-4EFF-9583-000BC531BF88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonModel", "PersonModel\PersonModel.csproj", "{3266CCF2-CA23-4EFF-9583-000BC531BF88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonData", "PersonData\PersonData.csproj", "{2423E116-7D36-4157-8603-8073B6A95AC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonData", "PersonData\PersonData.csproj", "{2423E116-7D36-4157-8603-8073B6A95AC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonAPI", "PersonAPI\PersonAPI.csproj", "{06C91FB5-FD70-4CF3-B031-F089D58933C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonAPI", "PersonAPI\PersonAPI.csproj", "{06C91FB5-FD70-4CF3-B031-F089D58933C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{A7F4D903-F375-498A-AA36-01306EC907E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{06C91FB5-FD70-4CF3-B031-F089D58933C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C91FB5-FD70-4CF3-B031-F089D58933C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C91FB5-FD70-4CF3-B031-F089D58933C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F4D903-F375-498A-AA36-01306EC907E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F4D903-F375-498A-AA36-01306EC907E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F4D903-F375-498A-AA36-01306EC907E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F4D903-F375-498A-AA36-01306EC907E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

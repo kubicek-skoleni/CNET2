@@ -15,5 +15,5 @@ public class PeopleContext : DbContext
     // special "local" folder for your platform.
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlite(@"Data Source=C:\Users\Student\source\repos\kubicek-skoleni\CNET2\CNET2\people.db");
+        => options.UseSqlite(@"Data Source=C:\Users\urmon\Downloads\people.db");
 }

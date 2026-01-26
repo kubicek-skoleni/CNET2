@@ -27,7 +27,7 @@ namespace ConsoleApp.Model
         }
         public DateOnly RokNarozeni { get; set; }
         public string Trida { get; set; } = string.Empty;
-        public Adresa Adresa { get; set; } = new Adresa();
+        public IAdresa Adresa { get; set; }
         #endregion
 
         #region metody

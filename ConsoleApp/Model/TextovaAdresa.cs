@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp.Model
 {
-    public class Adresa
+    public class TextovaAdresa : IAdresa
     {
         public string Ulice { get; set; }
         public string Mesto { get; set; }
@@ -12,7 +12,9 @@ namespace ConsoleApp.Model
 
         public string FullAddress()
             => $"{Ulice}, {PSC} {Mesto}";
-        
 
+        public bool IsValid()
+        => !string.IsNullOrEmpty(Ulice) && !string.IsNullOrEmpty(PSC);
+        
     }
 }

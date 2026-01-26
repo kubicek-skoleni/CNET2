@@ -11,4 +11,4 @@ var student = new Student()
 };
 
 
-Console.WriteLine(student.Prijmeni);
+Console.WriteLine(student);

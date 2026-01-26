@@ -1,0 +1,119 @@
+// Společné rozhraní pro všechny typy adres
+interface IAdresa
+{
+    string ZiskejCelouAdresu();
+    bool JePlatna();
+}
+
+// Běžná textová adresa
+class TextovaAdresa : IAdresa
+{
+    public string Ulice { get; set; }
+    public string CisloPopisne { get; set; }
+    public string Mesto { get; set; }
+    public string Psc { get; set; }
+
+    public string ZiskejCelouAdresu()
+    {
+        return $"{Ulice} {CisloPopisne}, {Psc} {Mesto}";
+    }
+
+    public bool JePlatna()
+    {
+        // Jednoduchá validace - vše musí být vyplněno, PSČ má 5 znaků
+        return !string.IsNullOrWhiteSpace(Ulice)
+            && !string.IsNullOrWhiteSpace(CisloPopisne)
+            && !string.IsNullOrWhiteSpace(Mesto)
+            && Psc?.Length == 5;
+    }
+}
+
+// RUIAN adresa (s kódy z registru)
+class RuianAdresa : IAdresa
+{
+    public int KodObce { get; set; }
+    public string NazevObce { get; set; }
+    public int? KodUlice { get; set; }
+    public string NazevUlice { get; set; }
+    public int CisloDomovni { get; set; }
+    public int Psc { get; set; }
+
+    public string ZiskejCelouAdresu()
+    {
+        string uliceCast = KodUlice.HasValue 
+            ? $"{NazevUlice} {CisloDomovni}" 
+            : $"č.p. {CisloDomovni}";
+        
+        return $"{uliceCast}, {Psc} {NazevObce}";
+    }
+
+    public bool JePlatna()
+    {
+        // RUIAN kódy mají specifické rozsahy
+        return KodObce > 500000 && KodObce < 600000
+            && CisloDomovni > 0
+            && Psc >= 10000 && Psc <= 99999;
+    }
+}
+
+// ============ POUŽITÍ ============
+
+// Vytvoříme různé adresy
+List<IAdresa> adresy =
+[
+    new TextovaAdresa
+    {
+        Ulice = "Vinohradská",
+        CisloPopisne = "12",
+        Mesto = "Praha",
+        Psc = "12000"
+    },
+    new RuianAdresa
+    {
+        KodObce = 554782,
+        NazevObce = "Brno",
+        KodUlice = 123456,
+        NazevUlice = "Masarykova",
+        CisloDomovni = 25,
+        Psc = 60200
+    },
+    new TextovaAdresa
+    {
+        Ulice = "Krátká",
+        CisloPopisne = "5",
+        Mesto = "Plzeň",
+        Psc = "301"  // neplatné PSČ!
+    }
+];
+
+// Díky interface můžeme se všemi pracovat jednotně
+Console.WriteLine("=== PŘEHLED ADRES ===\n");
+
+foreach (IAdresa adresa in adresy)
+{
+    Console.WriteLine(adresa.ZiskejCelouAdresu());
+    
+    if (adresa.JePlatna())
+    {
+        Console.WriteLine("  ✓ Adresa je platná");
+    }
+    else
+    {
+        Console.WriteLine("  ✗ Adresa není platná!");
+    }
+    Console.WriteLine();
+}
+```
+
+**Výstup:**
+```
+=== PŘEHLED ADRES ===
+
+Vinohradská 12, 12000 Praha
+  ✓ Adresa je platná
+
+Masarykova 25, 60200 Brno
+  ✓ Adresa je platná
+
+Krátká 5, 301 Plzeň
+  ✗ Adresa není platná!

@@ -2,11 +2,13 @@
 
 using ConsoleApp.Model;
 
-var student = new Student();
+var student = new Student() 
+{ 
+    Prijmeni = "  novak  ",
+    RokNarozeni = 2005,
+    Adresa = "Praha 1",
+    Trida = "9.A"
+};
 
-student.Prijmeni = "  svoboda  ";
-student.RokNarozeni = 2005;
-student.Trida = "9.A";
-student.Adresa = "Hlavni 123, Praha";
 
 Console.WriteLine(student.Prijmeni);

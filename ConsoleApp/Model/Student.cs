@@ -7,23 +7,11 @@ namespace ConsoleApp.Model
     public class Student
     {
         // Jmeno, Prijmeni, RokNarozeni, Trida, Adresa
-        public Student()
-        {
-        }
 
-        public Student(string prijmeni)
-        {
-                Prijmeni = prijmeni;
-        }
-
-        public Student(string prijmeni, int rokNarozeni) :this(prijmeni)
-        {
-                RokNarozeni = rokNarozeni;
-        }
+        private string prijmeni;
 
         #region Property
-        private string prijmeni;
-        public string Prijmeni {
+        public required string Prijmeni {
             get 
             {
                 return prijmeni;
@@ -38,9 +26,9 @@ namespace ConsoleApp.Model
         }
         public int RokNarozeni { get; set; }
         public string Trida { get; set; }
-        public string Adresa { get; set; }
+        public string Adresa { get; set; } = "neuvedena";
         #endregion
-        
+
         #region metody
         override public string ToString()
         {

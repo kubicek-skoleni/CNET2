@@ -1,38 +1,9 @@
-﻿using System.Runtime.CompilerServices;
+﻿int[] numbers = { 11, 2, 13, -97542, 44, -5, 6, 127, -99, 0, 256, 0, 12, 11 };
 
-int[] cisla = [-10, 0, 15, 20, -25, 30, 35 ];
-Console.WriteLine(string.Join(", ", cisla));
-
-List<string> slova = ["ahoj", "Pepa", "Alice", "poledne"];
-
-// LINQ
-
-// WHERE
-//var result = cisla.Where(cislo => cislo > 100);
-
-
-// ORDERBY
-//var result = cisla.OrderByDescending(cislo => cislo);
-
-// AGREGACNI
-//var res = cisla.Min();
-//Console.WriteLine($"min: {res}");
-
-// skip/take 
-//var result =  cisla.SkipWhile(cislo => cislo < 0);
-
-// First, FirstOrDefault, Single, SingleOrDefault
-
-//var cislo = cisla.Where(x => x > 100).FirstOrDefault();
-//Console.WriteLine($"privní > 10: {cislo}");
-
-// SELECT - TRANSFORMACE
-var result = cisla.Select(cislo => Math.Abs(cislo));
-
-//All, Any
-bool res = cisla.Any(x =>  x > 0);
-
-// vypis
-Console.WriteLine(string.Join(", ", result));
-
-
+//// 1.  kolik obsahuje pole kladných čísel
+//// 2.  kolik obsahuje pole záporných čísel
+//// 3.  sumu kladných hodnot
+//// 4.  největší absolutní hodnotu
+//// 5.  všechna kladná sudá čísla
+//// 6.  seřaďte pole od nejmenších po největší hodnoty,
+//// 7.  přeskočte první 3 prvky a seřaďte zbytek hodnot

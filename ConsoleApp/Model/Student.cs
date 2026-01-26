@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ConsoleApp.Model
@@ -24,15 +25,26 @@ namespace ConsoleApp.Model
                 prijmeni = prvni + zbytek;
             }
         }
-        public int RokNarozeni { get; set; }
-        public string Trida { get; set; }
-        public string Adresa { get; set; } = "neuvedena";
+        public DateOnly RokNarozeni { get; set; }
+        public string Trida { get; set; } = string.Empty;
+        public Adresa Adresa { get; set; } = new Adresa();
         #endregion
 
         #region metody
         override public string ToString()
         {
             return $"{Prijmeni} ({RokNarozeni}), {Trida}, {Adresa}";
+        }
+
+        public int Vek()
+        {
+            var dnes = DateOnly.FromDateTime(DateTime.Now);
+            var vek = dnes.Year - RokNarozeni.Year;
+            if (dnes < RokNarozeni.AddYears(vek))
+            {
+                vek--;
+            }
+            return vek;
         }
         #endregion
     }

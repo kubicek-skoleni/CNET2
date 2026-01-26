@@ -10,6 +10,8 @@ var student = new Student()
 };
 
 student.Adresa.Ulice = "Hlavni 123";
+student.Adresa.Mesto = "Praha";
+student.Adresa.PSC = "11000";
 
 
 Console.WriteLine(student);

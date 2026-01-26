@@ -33,7 +33,7 @@ namespace ConsoleApp.Model
         #region metody
         override public string ToString()
         {
-            return $"{Prijmeni} ({RokNarozeni}), {Trida}, {Adresa}";
+            return $"{Prijmeni} ({RokNarozeni}), {Trida}, {Adresa.FullAddress()}";
         }
 
         public int Vek()

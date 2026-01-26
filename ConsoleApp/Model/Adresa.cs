@@ -10,6 +10,9 @@ namespace ConsoleApp.Model
         public string Mesto { get; set; }
         public string PSC { get; set; }
 
+        public string FullAddress()
+            => $"{Ulice}, {PSC} {Mesto}";
+        
 
     }
 }

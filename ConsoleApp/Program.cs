@@ -34,3 +34,12 @@ Console.WriteLine(student);
 
 Console.WriteLine("student - ruian adresa:");
 Console.WriteLine(student2);
+
+var ucitel = new Ucitel()
+{
+    Prijmeni = "Svoboda",
+    RokNarozeni = new DateOnly(1980, 1, 1),
+    Plat = 50000
+};
+
+Console.WriteLine($"učitel: {ucitel}");

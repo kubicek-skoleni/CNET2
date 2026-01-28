@@ -1,0 +1,6 @@
+@MinAPI_HostAddress = https://localhost:7156
+
+GET {{MinAPI_HostAddress}}
+Accept: application/json
+
+###

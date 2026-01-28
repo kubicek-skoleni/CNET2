@@ -38,11 +38,18 @@ namespace WpfApp
                 var words = await File.ReadAllLinesAsync(file);
                 cnt += words.Length;
             }
-
             return cnt;
-
         }
+        Brush GetRandomSolidBrush()
+        {
+            var brushes = typeof(Brushes)
+                .GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Select(p => p.GetValue(null))
+                .OfType<SolidColorBrush>()
+                .ToList();
 
+            return brushes[Random.Shared.Next(brushes.Count)];
+        }
         private void btnSeq1_Click(object sender, RoutedEventArgs e)
         {
             Stopwatch time = new Stopwatch();
@@ -92,7 +99,7 @@ namespace WpfApp
             time.Start();
 
             txbInfo.Text = "";
-            
+
             var top10 = FileProcessing.StatsAllFiles();
 
             foreach (var item in top10)
@@ -112,15 +119,28 @@ namespace WpfApp
             btnColor.Background = GetRandomSolidBrush();
         }
 
-        Brush GetRandomSolidBrush()
-        {
-            var brushes = typeof(Brushes)
-                .GetProperties(BindingFlags.Public | BindingFlags.Static)
-                .Select(p => p.GetValue(null))
-                .OfType<SolidColorBrush>()
-                .ToList();
 
-            return brushes[Random.Shared.Next(brushes.Count)];
+        private async void btnAllAsync_Click(object sender, RoutedEventArgs e)
+        {
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+
+            Stopwatch time = new Stopwatch();
+            time.Start();
+
+            txbInfo.Text = "";
+
+            var top10 = await Task.Run(() => FileProcessing.StatsAllFiles());
+
+            foreach (var item in top10)
+            {
+                txbInfo.Text += $"{item.Key} - {item.Value}{Environment.NewLine}";
+            }
+            txbInfo.Text += Environment.NewLine;
+
+            time.Stop();
+            txbInfo.Text += $"Čas zpracování: {time.ElapsedMilliseconds} ms";
+
+            Mouse.OverrideCursor = null;
         }
     }
 }

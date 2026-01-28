@@ -25,6 +25,7 @@
                 </Button.Background>
             </Button>
             <Button x:Name="btnColor" Content="Barva" Width="100" Margin="5" Height="80" FontSize="30" Click="btnColor_Click"  />
+            <Button x:Name="btnAllAsync" Click="btnAllAsync_Click" Content="All async" Width="136" Margin="5" Height="80" FontSize="30" Background="#FFC4F59D" />
         </StackPanel>
         <ScrollViewer Margin="0,150,0,0">
             <TextBlock x:Name="txbInfo" TextWrapping="Wrap" Text="TextBlock" FontSize="36"  Background="#FFFFFBEC"/>

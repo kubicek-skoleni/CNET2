@@ -24,7 +24,38 @@ namespace WpfApp
 
         private void btnSeq1_Click(object sender, RoutedEventArgs e)
         {
+            txbInfo.Text = "";
+            string filesdir = @"C:\Users\Student\Downloads\bigfiles";
 
+            List<string> files = Directory.EnumerateFiles(filesdir, "*.txt")
+                                          .ToList();
+
+            foreach(var file in files)
+            {
+                Dictionary<string, int> wordCount = new();
+
+                var words = File.ReadAllLines(file);
+
+                foreach(var word in words)
+                {
+                    if (wordCount.ContainsKey(word))
+                        wordCount[word]++;
+                    else
+                        wordCount.Add(word, 1);
+                }
+
+                var top10 = wordCount
+                                    .OrderByDescending(x => x.Value)
+                                    .Take(10);
+
+                txbInfo.Text += $"Soubor: {System.IO.Path.GetFileName(file)}{Environment.NewLine}";
+                foreach(var item in top10)
+                {
+                    txbInfo.Text += $"   {item.Key} - {item.Value}{Environment.NewLine}";
+                }
+                txbInfo.Text += Environment.NewLine;
+
+            }
         }
     }
 }

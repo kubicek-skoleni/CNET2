@@ -267,6 +267,7 @@ namespace WpfApp
                     wordCount.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
                 }
             });
+                       
 
             var top10 = wordCount
                                 .OrderByDescending(x => x.Value)

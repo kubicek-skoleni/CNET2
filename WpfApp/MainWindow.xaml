@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900">
+        Title="MainWindow" Height="450" Width="1200">
     <Grid>
         <WrapPanel Orientation="Horizontal" Height="200" VerticalAlignment="Top">
             <Button Name="btnSeq1" Click="btnSeq1_Click" Margin="5" Width="208" Height="80" Content="Per file sync" FontSize="36" >
@@ -27,8 +27,8 @@
             <Button x:Name="btnColor" Content="Barva" Width="100" Margin="5" Height="80" FontSize="30" Click="btnColor_Click"  />
             <Button x:Name="btnAllAsync" Click="btnAllAsync_Click" Content="All async" Width="136" Margin="5" Height="80" FontSize="30" Background="#FFC4F59D" />
             <Button x:Name="btnPerFileAsync" Click="btnPerFileAsync_Click" Content="Per file async" Width="197" Margin="5" Height="80" FontSize="30" Background="#FFF5EA9D" />
-            <Button x:Name="btnAllParallel" Click="btnAllParallel_Click" Content="All parallel" Width="197" Margin="5" Height="80" FontSize="30" Background="#FFF59DE2" />
-            <Button x:Name="btnAllParallelAsync" Click="btnAllParallelAsync_Click" Content="All parallel async" Width="254" Height="80" FontSize="30" >
+            <Button x:Name="btnAllParallel" Click="btnAllParallel_Click" Content="All parallel" Width="197" Margin="5" Height="80" FontSize="30" Background="#FFF59DE2"  />
+            <Button x:Name="btnAllParallelAsync" Click="btnAllParallelAsync_Click" Content="All parallel async" Width="254" Height="80" FontSize="30" Margin="5" >
                 <Button.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#FFBFEDE2" Offset="0.223"/>
@@ -36,6 +36,15 @@
                     </RadialGradientBrush>
                 </Button.Background>
             </Button>
+            <Button x:Name="btnLongRunningStart" Click="btnLongRunningStart_Click" Margin="5" Content="Long+progress start" Width="351" Height="80" FontSize="30" >
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FFF9CFFB" Offset="0.223"/>
+                        <GradientStop Color="#FFB288F3" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnLongStop" Content="Cancel task" Width="206" Height="80" FontSize="30" Click="btnLongStop_Click" Background="#FFFF6132"  />
 
         </WrapPanel>
         <ScrollViewer Margin="0,200,0,0">

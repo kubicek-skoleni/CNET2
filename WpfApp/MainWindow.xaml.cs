@@ -22,6 +22,8 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        CancellationTokenSource cts = new CancellationTokenSource();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -283,6 +285,48 @@ namespace WpfApp
             txbInfo.Text += $"Čas zpracování: {time.ElapsedMilliseconds} ms";
 
             Mouse.OverrideCursor = null;
+        }
+
+        private async void btnLongRunningStart_Click(object sender, RoutedEventArgs e)
+        {
+
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+
+            Stopwatch time = new Stopwatch();
+            time.Start();
+
+            txbInfo.Text = "";
+
+            cts = new CancellationTokenSource();
+            CancellationToken cancelToken = cts.Token;
+
+            IProgress<string> progress = new Progress<string>(message =>             {
+                txbInfo.Text += message + Environment.NewLine;
+            });
+
+            var top10 = await Task.Run(() => FileProcessing.StatsAllFilesWithProgress(progress, cancelToken));
+
+            txbInfo.Text += Environment.NewLine;
+
+            if (!cancelToken.IsCancellationRequested)
+            {
+                foreach (var item in top10)
+                {
+                    txbInfo.Text += $"{item.Key} - {item.Value}{Environment.NewLine}";
+                }
+            }
+            txbInfo.Text += Environment.NewLine;
+
+            time.Stop();
+            txbInfo.Text += $"Čas zpracování: {time.ElapsedMilliseconds} ms";
+
+            Mouse.OverrideCursor = null;
+
+        }
+
+        private void btnLongStop_Click(object sender, RoutedEventArgs e)
+        {
+            cts.Cancel();
         }
     }
 }

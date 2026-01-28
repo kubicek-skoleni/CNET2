@@ -8,7 +8,7 @@ namespace WpfApp
 {
     public class FileProcessing
     {
-        static string filesdir = @"C:\Users\Student\Downloads\bigfiles";
+        public static string filesdir = @"C:\Users\Student\Downloads\bigfiles";
         public static Dictionary<string, int> StatsAllFiles()
         {
             List<string> files = Directory.EnumerateFiles(filesdir, "*.txt")
@@ -22,6 +22,7 @@ namespace WpfApp
 
                 foreach (var word in words)
                 {
+
                     if (wordCount.ContainsKey(word))
                         wordCount[word]++;
                     else
@@ -35,6 +36,23 @@ namespace WpfApp
 
             return top10.ToDictionary();
 
+        }
+
+        public static Dictionary<string, int> StatsSingleFile(string file)
+        {
+            Dictionary<string, int> stats = new();
+            var words = File.ReadLines(file);
+
+            foreach (var word in words)
+            {
+                if (stats.ContainsKey(word))
+                    stats[word]++;
+                else
+                    stats.Add(word, 1);
+            }
+
+            var top10 = stats.OrderByDescending(x => x.Value).Take(10);
+            return top10.ToDictionary();
         }
     }
 }

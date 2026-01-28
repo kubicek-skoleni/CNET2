@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="900">
     <Grid>
-        <StackPanel Orientation="Horizontal" Height="150" VerticalAlignment="Top">
-            <Button Name="btnSeq1" Click="btnSeq1_Click" Margin="5" Width="150" Height="80" Content="Seq 1" FontSize="36" >
+        <WrapPanel Orientation="Horizontal" Height="200" VerticalAlignment="Top">
+            <Button Name="btnSeq1" Click="btnSeq1_Click" Margin="5" Width="208" Height="80" Content="Per file sync" FontSize="36" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF6DCDFF"/>
@@ -26,8 +26,11 @@
             </Button>
             <Button x:Name="btnColor" Content="Barva" Width="100" Margin="5" Height="80" FontSize="30" Click="btnColor_Click"  />
             <Button x:Name="btnAllAsync" Click="btnAllAsync_Click" Content="All async" Width="136" Margin="5" Height="80" FontSize="30" Background="#FFC4F59D" />
-        </StackPanel>
-        <ScrollViewer Margin="0,150,0,0">
+            <Button x:Name="btnPerFileAsync" Click="btnPerFileAsync_Click" Content="Per file async" Width="197" Margin="5" Height="80" FontSize="30" Background="#FFF5EA9D" />
+            <Button x:Name="btnAllParallel" Click="btnAllParallel_Click" Content="All parallel" Width="197" Margin="5" Height="80" FontSize="30" Background="#FFF59DE2" />
+
+        </WrapPanel>
+        <ScrollViewer Margin="0,200,0,0">
             <TextBlock x:Name="txbInfo" TextWrapping="Wrap" Text="TextBlock" FontSize="36"  Background="#FFFFFBEC"/>
         </ScrollViewer>
       

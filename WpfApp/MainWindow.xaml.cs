@@ -213,7 +213,7 @@ namespace WpfApp
 
             //foreach (var file in files)
             Parallel.ForEach(files,
-                             //new ParallelOptions { MaxDegreeOfParallelism = 4 },
+                             new ParallelOptions { MaxDegreeOfParallelism = 4 },
                              file =>
             {
                 var words = System.IO.File.ReadAllLines(file);
@@ -308,10 +308,11 @@ namespace WpfApp
             });
 
             var top10 = await Task.Run(() => FileProcessing.StatsAllFilesWithProgress(progress, cancelToken));
+            
 
             txbInfo.Text += Environment.NewLine;
 
-            if (!cancelToken.IsCancellationRequested)
+            if(!cancelToken.IsCancellationRequested)
             {
                 foreach (var item in top10)
                 {
@@ -331,6 +332,24 @@ namespace WpfApp
         {
             // zrušení operace
             cts.Cancel();
+        }
+
+        private async void btnWebLoadTasks_Click(object sender, RoutedEventArgs e)
+        {
+        //    string[] urls = [
+        //    "https://seznam.cz",
+        //    "https://komfi.cz",
+        //    "https://novinky.cz"
+        //];
+
+        //    var task3 = Task.Run(() => WebLoad.LoadUrl(urls[2]));
+        //    var task1 = Task.Run(() => WebLoad.LoadUrl(urls[0]));
+        //    var task2 = Task.Run(() => WebLoad.LoadUrl(urls[1]));
+
+        //    Task[] tasks = [task1, task3, task2];
+
+        //    await Task.WhenAll(tasks);
+
         }
     }
 }

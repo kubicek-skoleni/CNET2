@@ -45,7 +45,7 @@
                 </Button.Background>
             </Button>
             <Button x:Name="btnLongStop" Content="Cancel task" Width="206" Height="80" FontSize="30" Click="btnLongStop_Click" Background="#FFFF6132"  />
-
+            <Button x:Name="btnWebLoadTasks" Content="Web loads" Width="206" Height="80" FontSize="30" Click="btnWebLoadTasks_Click"  />
         </WrapPanel>
         <ScrollViewer Margin="0,200,0,0">
             <TextBlock x:Name="txbInfo" TextWrapping="Wrap" Text="TextBlock" FontSize="36"  Background="#FFFFFBEC"/>

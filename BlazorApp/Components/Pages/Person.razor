@@ -1,0 +1,49 @@
+﻿@page "/person/{id:int}"
+@using global::Data
+@inject PeopleDbContext dbContext
+
+
+<h3>Person</h3>
+
+<div>@DateTime.Now</div>
+@if (person == null)
+{
+    if (notFound)
+    {
+        <p><strong>Person not found.</strong></p>
+    }
+    else
+    {
+        <p><em>Loading...</em></p>
+    }
+}
+else
+{
+    <div>
+        <p><strong>ID:</strong> @person.Id</p>
+        <p><strong>Name:</strong>@person.FirstName @person.LastName</p>
+        <p><strong>Age:</strong> @person.Age</p>
+    </div>
+}
+
+
+@code {
+
+    [Parameter]
+    public int id { get; set; }
+
+    Model.Person person;
+
+    bool notFound = false;
+
+    override protected void OnInitialized()
+    {
+
+        person = dbContext.Persons.Find(id);
+
+        if(person == null)
+            notFound = true;
+
+    }
+
+}

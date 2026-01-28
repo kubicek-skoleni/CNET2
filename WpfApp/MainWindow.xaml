@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal" Height="150" VerticalAlignment="Top">
-            <Button Name="btnSeq1" Click="btnSeq1_Click" Width="150" Height="80" Content="Seq 1" FontSize="36" >
+            <Button Name="btnSeq1" Click="btnSeq1_Click" Margin="5" Width="150" Height="80" Content="Seq 1" FontSize="36" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF6DCDFF"/>
@@ -16,6 +16,15 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <Button x:Name="btnSeq2" Margin="5" Click="btnSeq2_Click" Width="150" Height="80" Content="Seq All" FontSize="36" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF6DCDFF"/>
+                        <GradientStop Color="#FF747CF9" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnColor" Content="Barva" Width="100" Margin="5" Height="80" FontSize="30" Click="btnColor_Click"  />
         </StackPanel>
         <ScrollViewer Margin="0,150,0,0">
             <TextBlock x:Name="txbInfo" TextWrapping="Wrap" Text="TextBlock" FontSize="36"  Background="#FFFFFBEC"/>

@@ -4,4 +4,5 @@
   <Project Path="Data/Data.csproj" Id="97db837f-8874-4260-8619-2cda07518a5f" />
   <Project Path="MinAPI/MinAPI.csproj" Id="45c3b9f9-f978-4af0-ba63-cac2447abcb6" />
   <Project Path="Model/Model.csproj" Id="712c4e9d-8115-4f8b-96ea-527da5ff2798" />
+  <Project Path="WpfApp/WpfApp.csproj" Id="f1d2dcbc-b21e-4878-8fee-567a1c00fcf7" />
 </Solution>

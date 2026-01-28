@@ -29,6 +29,9 @@ app.MapGet("/person/{id:int}", (PeopleDbContext db, int id) =>
                     .Where(x => x.Id == id)
                     .FirstOrDefault();
 
+    person.DateOfBirth = new DateTime(2007, 11, 30);
+    db.SaveChanges();
+
     if (person == null)
         return Results.NotFound();
     else

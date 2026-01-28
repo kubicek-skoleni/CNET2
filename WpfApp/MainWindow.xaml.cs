@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -22,6 +23,24 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        async Task<int> LoadFromFiles()
+        {
+            string filesdir = @"C:\Users\Student\Downloads\bigfiles";
+
+            List<string> files = Directory.EnumerateFiles(filesdir, "*.txt")
+                                          .ToList();
+            int cnt = 0;
+            foreach (string file in files)
+            {
+                var words = await File.ReadAllLinesAsync(file);
+                cnt += words.Length;
+            }
+
+            return cnt;
+
         }
 
         private void btnSeq1_Click(object sender, RoutedEventArgs e)
@@ -35,13 +54,13 @@ namespace WpfApp
             List<string> files = Directory.EnumerateFiles(filesdir, "*.txt")
                                           .ToList();
 
-            foreach(var file in files)
+            foreach (var file in files)
             {
                 Dictionary<string, int> wordCount = new();
 
                 var words = File.ReadAllLines(file);
 
-                foreach(var word in words)
+                foreach (var word in words)
                 {
                     if (wordCount.ContainsKey(word))
                         wordCount[word]++;
@@ -54,7 +73,7 @@ namespace WpfApp
                                     .Take(10);
 
                 txbInfo.Text += $"Soubor: {System.IO.Path.GetFileName(file)}{Environment.NewLine}";
-                foreach(var item in top10)
+                foreach (var item in top10)
                 {
                     txbInfo.Text += $"   {item.Key} - {item.Value}{Environment.NewLine}";
                 }
@@ -73,29 +92,8 @@ namespace WpfApp
             time.Start();
 
             txbInfo.Text = "";
-            string filesdir = @"C:\Users\Student\Downloads\bigfiles";
-
-            List<string> files = Directory.EnumerateFiles(filesdir, "*.txt")
-                                          .ToList();
-
-            Dictionary<string, int> wordCount = new();
-
-            foreach (var file in files)
-            {
-                var words = File.ReadAllLines(file);
-
-                foreach (var word in words)
-                {
-                    if (wordCount.ContainsKey(word))
-                        wordCount[word]++;
-                    else
-                        wordCount.Add(word, 1);
-                }
-            }
-
-            var top10 = wordCount
-                            .OrderByDescending(x => x.Value)
-                            .Take(10);
+            
+            var top10 = FileProcessing.StatsAllFiles();
 
             foreach (var item in top10)
             {

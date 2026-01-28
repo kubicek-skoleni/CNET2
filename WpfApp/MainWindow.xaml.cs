@@ -55,7 +55,7 @@ namespace WpfApp
         {
             btnColor.Background = GetRandomSolidBrush();
         }
-        
+
         private void btnSeq1_Click(object sender, RoutedEventArgs e)
         {
             /*
@@ -210,7 +210,55 @@ namespace WpfApp
             ConcurrentDictionary<string, int> wordCount = new();
 
             //foreach (var file in files)
-            Parallel.ForEach(files, file =>
+            Parallel.ForEach(files,
+                             //new ParallelOptions { MaxDegreeOfParallelism = 4 },
+                             file =>
+            {
+                var words = System.IO.File.ReadAllLines(file);
+
+                foreach (var word in words)
+                {
+                    wordCount.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
+                }
+            });
+
+            var top10 = wordCount
+                                .OrderByDescending(x => x.Value)
+                                .Take(10);
+
+            foreach (var item in top10)
+            {
+                txbInfo.Text += $"{item.Key} - {item.Value}{Environment.NewLine}";
+            }
+            txbInfo.Text += Environment.NewLine;
+
+            time.Stop();
+            txbInfo.Text += $"Čas zpracování: {time.ElapsedMilliseconds} ms";
+
+            Mouse.OverrideCursor = null;
+        }
+
+        private async void btnAllParallelAsync_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+             10 nejcastejsich slov ve všech souborech globálně
+              PARALELENIM ASYNCHRONNNIM zpusobem
+          */
+
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+
+            Stopwatch time = new Stopwatch();
+            time.Start();
+
+            txbInfo.Text = "";
+
+            List<string> files = Directory.EnumerateFiles(FileProcessing.filesdir, "*.txt")
+                                         .ToList();
+
+            ConcurrentDictionary<string, int> wordCount = new();
+
+            //foreach (var file in files)
+            await Parallel.ForEachAsync(files, async (file, cancellationToken) =>
             {
                 var words = System.IO.File.ReadAllLines(file);
 

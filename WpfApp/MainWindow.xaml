@@ -28,11 +28,19 @@
             <Button x:Name="btnAllAsync" Click="btnAllAsync_Click" Content="All async" Width="136" Margin="5" Height="80" FontSize="30" Background="#FFC4F59D" />
             <Button x:Name="btnPerFileAsync" Click="btnPerFileAsync_Click" Content="Per file async" Width="197" Margin="5" Height="80" FontSize="30" Background="#FFF5EA9D" />
             <Button x:Name="btnAllParallel" Click="btnAllParallel_Click" Content="All parallel" Width="197" Margin="5" Height="80" FontSize="30" Background="#FFF59DE2" />
+            <Button x:Name="btnAllParallelAsync" Click="btnAllParallelAsync_Click" Content="All parallel async" Width="254" Height="80" FontSize="30" >
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FFBFEDE2" Offset="0.223"/>
+                        <GradientStop Color="#FFDFF388" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
 
         </WrapPanel>
         <ScrollViewer Margin="0,200,0,0">
             <TextBlock x:Name="txbInfo" TextWrapping="Wrap" Text="TextBlock" FontSize="36"  Background="#FFFFFBEC"/>
         </ScrollViewer>
-      
+
     </Grid>
 </Window>

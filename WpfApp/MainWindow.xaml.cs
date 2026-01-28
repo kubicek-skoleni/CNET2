@@ -289,7 +289,10 @@ namespace WpfApp
 
         private async void btnLongRunningStart_Click(object sender, RoutedEventArgs e)
         {
-
+            /*
+             * 10 nejcastejsich slov ve všech souborech globálně
+              ASYNCHRONNIM zpusobem S PROGRESS A CANCEL
+            */
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
             Stopwatch time = new Stopwatch();
@@ -326,6 +329,7 @@ namespace WpfApp
 
         private void btnLongStop_Click(object sender, RoutedEventArgs e)
         {
+            // zrušení operace
             cts.Cancel();
         }
     }

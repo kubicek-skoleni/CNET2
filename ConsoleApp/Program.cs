@@ -1,22 +1,26 @@
-﻿using ConsoleApp;
+﻿int[][] numbers = [[1,0], [2, 3], [10, 0]];
+string[] fruits = ["Apple", "Banana", "Orange", "Grape"];
 
-int age = 25;
-double salary = 75000.5;
-string name = "John Doe";
-bool isEmployed = true;
-char grade = 'A';
-decimal price = 19.99m;
+List<int> numberslist = [2, 5, 6];
 
-var company = "Tech Corp";
-var yearsOfExperience = 5;
-var hourlyRate = 345.50m;
+//for loop
+for (int i = 1; i <= 10; i = i + 2)
+{
+    Console.Write($"{i} ");
+}
 
-int a = 10;
-byte b = 20;
 
-a = b;
-b = (byte)a;
-b = (byte)hourlyRate;
+//while loop
+Console.Write("While loop (countdown): ");
+int countdown = 5;
+while (countdown > 0)
+{
+    Console.Write($"{countdown} ");
+    countdown--;
+}
 
-Console.WriteLine($"Company: {company}");
-Console.WriteLine($"hourlyRate: {hourlyRate}");
+foreach (var item in numberslist)
+{
+    Console.WriteLine(item);
+}
+

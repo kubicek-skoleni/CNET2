@@ -9,7 +9,7 @@ try
 //{
 //    Console.WriteLine($"Chyba: Index mimo rozsah");
 //}
-catch(Exception ex)
+catch (Exception ex)
 {
     DateTime currentTime = DateTime.Now;
 
@@ -18,6 +18,10 @@ catch(Exception ex)
 
     File.WriteAllText(fileName, message);
     Console.WriteLine($"Chyba zaznamenana do souboru: {fileName}");
+}
+finally
+{
+    Console.WriteLine("Konec bloku try-catch-finally");
 }
 
 Console.WriteLine("pokračuji");

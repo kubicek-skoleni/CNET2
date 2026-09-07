@@ -1,27 +1,9 @@
-﻿int[] numbers = [10, 20, 30, 40, 50];
+﻿
 
-try
-{
-    numbers[5] = 100;
-    Console.WriteLine(numbers[5]);
-}
-//catch(IndexOutOfRangeException)
-//{
-//    Console.WriteLine($"Chyba: Index mimo rozsah");
-//}
-catch (Exception ex)
-{
-    DateTime currentTime = DateTime.Now;
+using ConsoleApp;
 
-    var fileName = currentTime.ToString("yyyy-MM-dd_HH-mm-ss") + "_error_log.txt";
-    var message = $"{ex.Message}{Environment.NewLine}{ex.StackTrace}";
+Student s1 =  new Student();
 
-    File.WriteAllText(fileName, message);
-    Console.WriteLine($"Chyba zaznamenana do souboru: {fileName}");
-}
-finally
-{
-    Console.WriteLine("Konec bloku try-catch-finally");
-}
+s1.Jmeno = "Karel";
 
-Console.WriteLine("pokračuji");
+s1.SetRokNarozeni(1000);

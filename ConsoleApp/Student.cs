@@ -6,25 +6,43 @@ namespace ConsoleApp;
 
 public class Student
 {
+    public Student()
+    {
+        Jmeno = "Neznámý";
+        Prijmeni = "Neznámý";
+        RokNarozeni = 2000;
+    }
+    public Student(string jmeno, string prijmeni)
+    {
+        Jmeno = jmeno;
+        Prijmeni = prijmeni;
+    }
+    public Student(string jmeno, string prijmeni, int rok) : this(jmeno, prijmeni)
+    {
+       RokNarozeni = rok;
+    }
+
+    private int _rokNarozeni;
+
     public string Jmeno;
 
     public string Prijmeni;
 
-    private int RokNarozeni;
-
-    public void SetRokNarozeni(int roknarozeni)
+    public int RokNarozeni
     {
-        if (roknarozeni < 1900 || roknarozeni > DateTime.Now.Year)
+        get
         {
-            throw new ArgumentOutOfRangeException(nameof(roknarozeni), "Rok narození musí být mezi 1900 a aktuálním rokem.");
+            return _rokNarozeni;
         }
-        RokNarozeni = roknarozeni;
+        set
+        {
+            if (value < 1900 || value > DateTime.Now.Year)
+               throw new ArgumentOutOfRangeException("Rok narozeni musi byt mezi 1900 a aktualnim rokem.");
+            
+            _rokNarozeni = value;
+        }
     }
 
-    public int GetRokNarozeni()
-    {
-        return RokNarozeni;
-    }
 
     public string CeleJmeno()
     {

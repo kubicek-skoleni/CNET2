@@ -9,11 +9,12 @@ namespace ConsoleApp
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello from Program2!");
+        }
 
-            void SayHello(string name)
-            {
-                Console.WriteLine($"Hello, {name}!");
-            }
+        public static string SayHello(string name)
+        {
+            Console.WriteLine($"Hello, {name}!");
+            return $"Hello, {name}!";
         }
     }
 }

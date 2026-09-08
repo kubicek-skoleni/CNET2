@@ -1,8 +1,30 @@
 ﻿
-
 using ConsoleApp;
 
-Student s1 =  new Student();
-s1.Jmeno = "Karel";
-s1.Prijmeni = "Novák";
-s1.RokNarozeni = 1990;
+Console.WriteLine("Start");
+
+var a = 5;
+
+int number;
+
+if (a > 10)
+{
+    var x = 5;
+    number = a;
+} 
+else
+{
+    var x = "hello";
+    number = -1;
+}
+
+Console.WriteLine($"number: {number}");
+
+Console.WriteLine("Start");
+
+var stud = new Student()
+{
+    Jmeno = "Karel",
+};
+
+

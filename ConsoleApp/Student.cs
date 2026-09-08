@@ -6,27 +6,13 @@ namespace ConsoleApp;
 
 public class Student
 {
-    public Student()
-    {
-        Jmeno = "Neznámý";
-        Prijmeni = "Neznámý";
-        RokNarozeni = 2000;
-    }
-    public Student(string jmeno, string prijmeni)
-    {
-        Jmeno = jmeno;
-        Prijmeni = prijmeni;
-    }
-    public Student(string jmeno, string prijmeni, int rok) : this(jmeno, prijmeni)
-    {
-       RokNarozeni = rok;
-    }
-
+    const string jmeno = "Nepojmenovaný";
+    
     private int _rokNarozeni;
 
-    public string Jmeno;
+    public required string  Jmeno { get; set; } = string.Empty;
 
-    public string Prijmeni;
+    public string Prijmeni { get; set; } = "Nepojmenovaný";
 
     public int RokNarozeni
     {
@@ -46,6 +32,7 @@ public class Student
 
     public string CeleJmeno()
     {
+        //jmeno = string.IsNullOrEmpty(Jmeno) ? "Nepojmenovaný" : Jmeno;
         return $"{Jmeno} {Prijmeni}";
     }
 }

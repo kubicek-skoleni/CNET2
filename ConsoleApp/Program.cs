@@ -7,3 +7,7 @@ var strings = new[] { "zero", "one", "two",
 
 // vypište čísla v poli numbers jako slova
 
+var jako_slova = numbers.Select(n => strings[n]);
+
+Console.WriteLine($"jako slova: {string.Join(", ", jako_slova)}");
+

@@ -1,5 +1,8 @@
 ﻿
 
-var fruits = new[] { "aPPLE", "BlUeBeRrY", "cHeRry", "RaspbeRry" };
+var fruits = new[] { "aPPLE", "BlUeBeRrY", 
+    "cHeRry", "RaspbeRry" };
+
+
 
 

@@ -9,3 +9,28 @@ int[] numbers = { 11, 2, 13, -97542, 44, -5, 6, 127, -99, 0, 256, 0, 12, 11 };
 //// 5.  všechna kladná sudá čísla
 //// 6.  seřaďte pole od nejmenších po největší hodnoty,
 //// 7.  přeskočte první 3 prvky a sečtěte zbytek hodnot
+///
+
+
+var pocet_kladnych = numbers.Where(x => x > 0).Count();
+Console.WriteLine($"pocet_kladnych: {pocet_kladnych}");
+
+var pocet_zapornych = numbers.Where(x => x < 0).Count();
+Console.WriteLine($"pocet_zapornych: {pocet_zapornych}");
+
+var suma_kladnych = numbers.Where(x => x > 0).Sum();
+Console.WriteLine($"suma_kladnych: {suma_kladnych}");
+
+var nejv_abs = numbers.Select(x => Math.Abs(x)).Max();
+Console.WriteLine($"nejv_abs: {nejv_abs}");
+
+
+var kladna_suda = numbers.Where(cislo => cislo > 0 && cislo % 2 == 0);
+var kladna_suda_string = string.Join(", ", kladna_suda);
+Console.WriteLine(kladna_suda_string);
+
+var ordered = numbers.OrderBy(x => x);
+Console.WriteLine($"ordered: {string.Join(", ", ordered)}");
+
+var skip3sum = numbers.Skip(3).Sum();
+Console.WriteLine($"skip3sum: {skip3sum}");

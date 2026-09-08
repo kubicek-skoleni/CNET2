@@ -42,4 +42,10 @@ public class Auto
     /// </summary>
     public DateTime DatumStk { get; set; }
 
+
+    public override string ToString()
+    {
+        return $"Auto: {Spz}, {Vyrobce} {Model}, {Barva}, {PocetDveri} dveří, {Palivo}, {Spotreba} l/100km, {VelikostKol} in, {VykonKw} kW, STK: {DatumStk:dd. MM. yyyy}";
+    }
+
 }

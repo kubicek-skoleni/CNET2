@@ -28,7 +28,7 @@ var auto2 = new Auto()
     DatumStk = new DateTime(2023, 6, 15)
 };
 
-var auto3 = new Auto()
+Auto auto3 = new()
 {
     Spz = "EL7 5678",
     Barva = "Zelená",
@@ -42,6 +42,10 @@ var auto3 = new Auto()
     DatumStk = new DateTime(2023, 7, 15)
 };
 
-Console.WriteLine($"Auto 1: {auto1.Spz}, {auto1.Vyrobce} {auto1.Model}");
-Console.WriteLine($"Auto 2: {auto2.Spz}, {auto2.Vyrobce} {auto2.Model}");
-Console.WriteLine($"Auto 3: {auto3.Spz}, {auto3.Vyrobce} {auto3.Model}");
+Console.WriteLine(auto1);
+Console.WriteLine(auto2);
+Console.WriteLine(auto3);
+
+//Console.WriteLine($"Auto 1: {auto1.Spz}, {auto1.Vyrobce} {auto1.Model}");
+//Console.WriteLine($"Auto 2: {auto2.Spz}, {auto2.Vyrobce} {auto2.Model}");
+//Console.WriteLine($"Auto 3: {auto3.Spz}, {auto3.Vyrobce} {auto3.Model}");

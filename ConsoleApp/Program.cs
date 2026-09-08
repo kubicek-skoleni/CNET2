@@ -1,34 +1,9 @@
-﻿
-using ConsoleApp;
-using MyExtentions;
+﻿var numbers = new[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-var fruits = new[] { "aPPLE", "BlUeBeRrY", 
-    "cHeRry", "RaspbeRry", "čučoriedka" };
-
-
-// vypište všechno jako lowercase
-
-//var lowercaseFruits = fruits
-//                .Select(ovoce => ovoce.ToLower());
-//Console.WriteLine($"Lowercase fruits: {string.Join(", ", lowercaseFruits)}");
-
-// vypište velkými písmeny,
-// seřazeno od nejdelšího po nejkratší
-
-//var result = fruits.Select(f => f.ToUpper())
-//    .OrderByDescending(f => f.Length);
-
-//Console.WriteLine($"Uppercase fruits ordered by length: {string.Join(", ", result)}");
+var strings = new[] { "zero", "one", "two",
+    "three", "four", "five", "six", "seven", 
+    "eight", "nine" };
 
 
-// **********
-
-
-
-//  vypište s prvními velkými písmeny
-var capFruits = fruits
-    .Select(slovo => slovo.CapitalizeFirstLetter());
-
-Console.WriteLine($"Capitalized fruits: {string.Join(", ", capFruits)}");
-
+// vypište čísla v poli numbers jako slova
 

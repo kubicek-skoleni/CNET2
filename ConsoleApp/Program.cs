@@ -34,3 +34,9 @@ Console.WriteLine($"ordered: {string.Join(", ", ordered)}");
 
 var skip3sum = numbers.Skip(3).Sum();
 Console.WriteLine($"skip3sum: {skip3sum}");
+
+// jsou všechna čisla v poli kladná?
+// je alespoň jedno číslo v poli kladné?
+
+bool vsechna_kladna = numbers.All(x => x > 0);
+bool alespon_jedno_kladne = numbers.Any(x => x > 0);

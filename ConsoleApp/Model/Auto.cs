@@ -6,9 +6,6 @@ namespace ConsoleApp.Model;
 
 public class Auto
 {
-    //barva, pocet dveri, palivo, spotreba, velikost kol, vykon
-    //spz, znacka(brand), model, stk
-
     /// <summary>
     /// Registrační značka vozidla (SPZ)
     /// </summary>

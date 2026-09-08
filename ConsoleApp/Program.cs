@@ -8,7 +8,9 @@
 
 using ConsoleApp.Model;
 
-BankovniUcet bu = new();
+var kostka = new Kostka(20);
 
-bu.CisloUctu = "1234567890";
-bu.Zustatek = 1000m;
+for(int i = 0; i < 20; i++)
+{
+    Console.WriteLine($"Hod kostkou: {kostka.Hod()}");
+}

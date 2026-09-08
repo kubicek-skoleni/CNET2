@@ -1,5 +1,6 @@
 ﻿
 using ConsoleApp;
+using MyExtentions;
 
 var fruits = new[] { "aPPLE", "BlUeBeRrY", 
     "cHeRry", "RaspbeRry", "čučoriedka" };
@@ -26,8 +27,7 @@ var fruits = new[] { "aPPLE", "BlUeBeRrY",
 
 //  vypište s prvními velkými písmeny
 var capFruits = fruits
-    .Select(slovo =>
-    TextTransform.CapitalizeFirstLetter(slovo));
+    .Select(slovo => slovo.CapitalizeFirstLetter());
 
 Console.WriteLine($"Capitalized fruits: {string.Join(", ", capFruits)}");
 

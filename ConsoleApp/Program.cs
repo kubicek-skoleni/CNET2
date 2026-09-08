@@ -42,10 +42,17 @@ Auto auto3 = new()
     DatumStk = new DateTime(2023, 7, 15)
 };
 
-Console.WriteLine(auto1);
-Console.WriteLine(auto2);
-Console.WriteLine(auto3);
 
-//Console.WriteLine($"Auto 1: {auto1.Spz}, {auto1.Vyrobce} {auto1.Model}");
-//Console.WriteLine($"Auto 2: {auto2.Spz}, {auto2.Vyrobce} {auto2.Model}");
-//Console.WriteLine($"Auto 3: {auto3.Spz}, {auto3.Vyrobce} {auto3.Model}");
+var auta = new List<Auto>();
+auta.Add(auto1);
+auta.Add(auto2);
+auta.Add(auto3);
+
+foreach (var auto in auta)
+{
+    Console.WriteLine(auto);
+}
+
+var datum = new DateTime(1000, 1, 1);
+
+Console.WriteLine(datum);

@@ -21,3 +21,10 @@ var nejmladsi = people
     .First();
 
 Console.WriteLine(nejmladsi);
+
+
+var nejstarsi = people
+    .OrderBy(p => p.DateOfBirth)
+    .First();
+
+Console.WriteLine(nejstarsi);

@@ -28,3 +28,5 @@ var nejstarsi = people
     .First();
 
 Console.WriteLine(nejstarsi);
+
+string email = "Detmar.Matous@gmail.com";

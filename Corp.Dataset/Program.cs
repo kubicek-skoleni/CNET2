@@ -12,3 +12,12 @@ var people
 Console.WriteLine($"Počet osob: {people.Count}");
 
 
+// najdete nejmladsi a nejstarsi osobu
+// vypiste do konzole
+
+
+var nejmladsi = people
+    .OrderByDescending(p => p.DateOfBirth)
+    .First();
+
+Console.WriteLine(nejmladsi);

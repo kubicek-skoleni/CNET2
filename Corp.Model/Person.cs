@@ -25,6 +25,6 @@ public class Person
 
     public override string ToString()
     {
-        return $"{Id}, {FirstName} {LastName}, {Email}";
+        return $"{Id}, {FirstName} {LastName}, {Email}, {DateOfBirth.ToString("dd. MM. yyyy")}";
     }
 }

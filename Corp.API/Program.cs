@@ -1,3 +1,5 @@
+using Corp.Model;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,6 +22,8 @@ app.MapGet("/person/{id:int}", (int id) =>
         FirstName = "Nepojmenovaný",
         LastName = "Nepříjmenovaný"
     };
+
+    return person;
 });
 
     

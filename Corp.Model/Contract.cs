@@ -13,4 +13,9 @@ public class Contract
 
     public int CarBrand { get; set; }
     public string HexColor { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Id}, {Signed.ToString("yyyy-MM-dd")}, {PlateNumber}";
+    }
 }

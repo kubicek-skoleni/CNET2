@@ -22,4 +22,9 @@ public class Person
     public Address? Address { get; set; }
 
     public List<Contract> Contracts { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Id}, {FirstName} {LastName}, {Email}";
+    }
 }

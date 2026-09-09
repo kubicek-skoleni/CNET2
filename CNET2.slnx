@@ -4,4 +4,5 @@
   <Project Path="Corp.Database/Corp.Database.csproj" Id="95e2e801-977c-460a-a53c-e3b566273382" />
   <Project Path="Corp.Dataset/Corp.Dataset.csproj" Id="1a62aebc-670e-4f12-8850-bc333f6786bb" />
   <Project Path="Corp.Model/Corp.Model.csproj" Id="8f124e1d-4f85-43c8-8584-b88f468da36e" />
+  <Project Path="Corp.Web/Corp.Web.csproj" Id="d436d46e-4c55-4c50-8411-ddff3e171c88" />
 </Solution>

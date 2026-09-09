@@ -1,0 +1,29 @@
+﻿@page "/person/{id:int}"
+@using Corp.Database
+@inject PeopleContext db
+
+<h3>Person by id</h3>
+
+@if(person == null)
+{
+	<p>Person not found.</p>
+}
+else
+{
+	<p>Name: @person.FirstName @person.LastName</p>
+	<p>Email: @person.Email</p>
+}
+
+@code {
+
+	[Parameter]
+	public int id { get; set; }
+
+	Corp.Model.Person person = null;
+
+	protected override void OnInitialized()
+	{
+		person = db.Persons.Where(x => x.Id == id).FirstOrDefault();
+	}
+
+}

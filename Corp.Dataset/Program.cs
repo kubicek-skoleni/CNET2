@@ -29,4 +29,33 @@ var nejstarsi = people
 
 Console.WriteLine(nejstarsi);
 
-string email = "Detmar.Matous@gmail.com";
+string email1 = "Detmar.Matous@gmail.com";
+string email2 = "neexistujici@gmail.com";
+string email3 = "";
+
+NajdiPodleEmailu(email1);
+NajdiPodleEmailu(email2);
+NajdiPodleEmailu(email3);
+
+void NajdiPodleEmailu(string email)
+{
+    if (string.IsNullOrEmpty(email))
+    {
+        Console.WriteLine("Email není zadán.");
+        return;
+    }
+
+    var person = people
+        .Where(osoba => osoba.Email == email)
+        .FirstOrDefault();
+
+    if (person == null)
+    {
+        Console.WriteLine("Nenašel jsem osobu s emailem: " + email);
+        return;
+    }
+
+    Console.WriteLine($"Našel jsem osobu: {person}");
+}
+
+

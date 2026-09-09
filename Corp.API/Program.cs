@@ -1,8 +1,10 @@
+using Corp.Database;
 using Corp.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<PeopleContext>();
 
 var app = builder.Build();
 

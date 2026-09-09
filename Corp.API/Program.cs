@@ -8,8 +8,21 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-
 // API endpoints (URL)
+
+app.MapGet("/", () => "API běží");
+
+app.MapGet("/person/{id:int}", (int id) =>
+{
+    var person = new Person
+    {
+        Id = id,
+        FirstName = "Nepojmenovaný",
+        LastName = "Nepříjmenovaný"
+    };
+});
+
+    
 
 
 app.Run();

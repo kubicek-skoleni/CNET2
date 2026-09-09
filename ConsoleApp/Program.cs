@@ -1,1 +1,2 @@
-﻿
+﻿List<int> list = new();
+

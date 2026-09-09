@@ -11,7 +11,7 @@ public static class ExtensionMethods
     /// </summary>
     /// <param name="input">libovolný string</param>
     /// <returns>První velké, zbytek malé</returns>
-    public static string CapitalizeFirstLetter(this string input)
+    public static string CapitalizeFirstLetter(this string input, bool convertToLowerCase = true)
     {
         if (string.IsNullOrEmpty(input))
             return input;

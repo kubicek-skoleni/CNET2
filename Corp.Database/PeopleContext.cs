@@ -11,5 +11,9 @@ public class PeopleContext : DbContext
 
     public DbSet<Contract> Contracts { get; set; }
 
+    private string _dbPath = @"C:\Temp\people.db";
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseSqlite($"Data Source={_dbPath}");
 
 }
